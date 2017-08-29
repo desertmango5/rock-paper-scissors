@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock, Paper, Scissors</title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="vue.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row header">
+			<div class="col s12">
+				<h1 class="center-align">Rock Paper Scissors</h1>
+				<h2 class="center-align thin">Play Best of Five</h2>
+			</div>
+		</div>
+		<hr>
+
+<!-- PLAYER SCORES		 -->
+		<div class="row">
+			<div class="col s3 m4 offset-s3 offset-m2 player">
+				<div class="center-align">Player 1</div>
+				<div id="player1-score" class="center-align score-box">{{ player1score }}</div>
+			</div>
+			<div class="col s3 m4 player">
+				<div class="center-align">Player 2</div>
+				<div id="player2-score" class="center-align score-box">{{ player2score }}</div>
+			</div>
+		</div>
+
+<!-- ACTION BUTTON		 -->
+		<div id="game" class="row center-align">
+			<button v-on:click="go" v-if="winner" class="btn">Go</button>
+		</div>
+
+<!-- PLAY AGAIN BUTTON -->
+		<div id="play-again" class="row center-align">
+			<button v-on:click="playAgain" v-if="winner" class="btn">Play Again</button>
+		</div>
+
+<!-- GAME RESULT			 -->
+		<div id="game-result" class="center-align">{{ result }} <span id="game-winner">{{ gameWinner }}</span></div>
+
+<!-- ROCK, PAPER OR SCISSORS		 -->
+		<div class="row">
+			<div id="player1Item" class="player1 col s6 m5 offset-m1 center-align">
+				<img v-if="rock" src="https://s19.postimg.org/rv1rww1mr/rock-sm.png" alt="rock">
+				
+				<img v-if="paper" src="https://s19.postimg.org/yk8bcwmyr/paper-sm.png" alt="paper">
+				
+				<img v-if="scissors" src="https://s19.postimg.org/tbdaf14jn/scissors-sm.png" alt="scissors">
+				<div v-if="point" class="point">Point!</div>
+			</div>
+			
+			<div id="player2Item" class="player2 col s6 m5 center-align">
+				<img v-if="rock" src="https://s19.postimg.org/rv1rww1mr/rock-sm.png" alt="rock">
+				<img v-if="paper" src="https://s19.postimg.org/yk8bcwmyr/paper-sm.png" alt="paper">
+				<img v-if="scissors" src="https://s19.postimg.org/tbdaf14jn/scissors-sm.png" alt="scissors">
+				<div v-if="point" class="point">Point!</div>
+			</div>
+		</div>	
+	</div> <!-- end container -->
+
+	<script type="text/javascript" src="https://unpkg.com/vue"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<script type="text/javascript" src="vue.js"></script>
+</body>
+</html>
